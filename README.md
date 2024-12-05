@@ -18,7 +18,9 @@ Accessors: Enhances data formatting by defining custom attributes in models.
 PSR-4 Standards: Adheres to coding standards and best practices for maintainable code.
 Trait for Image Upload: Encapsulates image upload functionality in reusable traits.
 Request Validation: Ensures secure and clean data input across the application.
-Post Approval System: The first post by a user is not published automatically but sent as a request for admin approval.
+Post Approval System: - The first post by a user is not published automatically but sent as a request for admin approval.
+                      - If the admin does not accept or decline the post within 2 hours, a Task Scheduler command automatically approves it.
+Task Scheduler: Automates routine tasks such as post approvals after a specified time, ensuring timely actions without manual intervention.
 Visit the live website: http://blo9.rf.gd/en
 
 This project highlights a modern approach to Laravel development, showcasing robust functionality and clean architecture.
