@@ -31,7 +31,7 @@
                         Blogs
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="blogsDropdown">
-                        <li><a class="dropdown-item" href="{{ route('post.user', Auth::user()->id?? "admin") }}">My Blogs</a></li>
+                        <li><a class="dropdown-item" href="{{ route('post.user', Auth::guard('admin')->check()?'admin':Auth::user()->id) }}">My Blogs</a></li>
                         <li><a class="dropdown-item" href="{{ route('post.create') }}">Add Blog+</a></li>
                         @auth('admin')
                         <li><a class="dropdown-item" href="{{ route('post.requests') }}">Blog Requests ({{$request}})</a></li>

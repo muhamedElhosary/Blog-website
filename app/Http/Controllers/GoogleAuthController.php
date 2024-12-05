@@ -38,7 +38,7 @@ class GoogleAuthController extends Controller
         }
         catch(\Exception $e)
         {
-            return 'something wrong'.$e->getMessage();
+            return redirect()->back()->with('error', 'Login failed. Please try again.');
         }
         
     }

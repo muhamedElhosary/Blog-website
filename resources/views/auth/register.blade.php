@@ -48,5 +48,15 @@
                 {{ __('Register') }}
             </x-primary-button>
         </div>
+        
+            <!-- Google Login Button -->
+            <div class="row mb-4 mt-6">
+                <div class="col-md-6 offset-md-3 text-center">
+                    <a href="{{ route('google-auth') }}" 
+                    class="flex items-center justify-center bg-red-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-red-700 transition duration-300">
+                        <span>Continue with Google</span>
+                    </a>
+                </div>
+            </div>
     </form>
 </x-guest-layout>
