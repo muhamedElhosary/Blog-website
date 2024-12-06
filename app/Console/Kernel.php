@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Console\Commands\AcceptPost;
+use App\Console\Commands\DeleteUser;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -15,6 +16,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
     $schedule->command('post:accept-post')->everyTwoHours();
+    $schedule->command('user:delete-user')->everyThirtyMinutes();
     }
 
     /**
@@ -26,5 +28,6 @@ class Kernel extends ConsoleKernel
 
         require base_path('routes/console.php');
         AcceptPost::class;
+        DeleteUser::class;
     }
 }
