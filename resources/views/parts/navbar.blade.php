@@ -26,7 +26,7 @@
 
                 <!-- Blogs Dropdown -->
                 @if(Auth::check()||Auth::guard('admin')->check())
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown-notifications">
                     <a class="nav-link dropdown-toggle" href="#" id="blogsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Blogs
                     </a>
@@ -34,7 +34,11 @@
                         <li><a class="dropdown-item" href="{{ route('post.user', Auth::guard('admin')->check()?'admin':Auth::user()->id) }}">My Blogs</a></li>
                         <li><a class="dropdown-item" href="{{ route('post.create') }}">Add Blog+</a></li>
                         @auth('admin')
-                        <li><a class="dropdown-item" href="{{ route('post.requests') }}">Blog Requests ({{$request}})</a></li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('post.requests') }}">
+                                Blog Requests <span class="notif-count badge bg-danger" data-count="{{ $request ?? 0 }}">{{ $request ?? 0 }}</span>
+                            </a>
+                        </li>
                         @endauth
                     </ul>
                 </li>

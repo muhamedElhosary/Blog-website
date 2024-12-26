@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\SendNotification;
 use App\Http\Requests\PostRequest;
 use App\Http\Traits\ImageTrait;
 use App\Models\Post;
@@ -107,7 +108,13 @@ class PostController extends Controller
                 $post->status = '1';
                 $post->update();
             }
-
+            //event related with pusher
+            $data=[
+                'user_id'=>$post->user_id,
+                'title'=>$post->title,
+                'summary'=>$post->summary,
+            ];
+            event(New SendNotification($data));
             return redirect()->route('post.create')->with('success', 'Post added successfully');
    }
 
